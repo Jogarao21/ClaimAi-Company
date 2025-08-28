@@ -1,0 +1,240 @@
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #232428 0%, #131215 100%);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+  max-width: 400px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal h2 {
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  color: white;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 45px 12px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.input-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 14px;
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  min-width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  user-select: none;
+}
+
+.form-btn {
+  width: 100%;
+  background: #2d3748;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.form-btn:hover {
+  background: #1a202c;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-btn:active {
+  transform: translateY(0);
+}
+
+.form-link {
+  text-align: center;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.form-link a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.form-link a:hover {
+  text-decoration: underline;
+  color: #4ecdc4;
+}
+
+.forgot-password {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.forgot-password a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.forgot-password a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 30px 20px;
+    margin: 20px;
+    max-width: none;
+    width: calc(100% - 40px);
+  }
+  
+  .modal h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  
+  .form-group input {
+    padding: 12px 40px 12px 12px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .form-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+  
+  .close-btn {
+    top: 10px;
+    right: 15px;
+    width: 28px;
+    height: 28px;
+    font-size: 1.3rem;
+  }
+}
+
+/* Animation for modal appearance */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal.show .modal-content {
+  animation: modalFadeIn 0.3s ease-out;
+}
